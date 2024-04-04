@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Pokemon } from 'src/app/interaces/pokemoninterfa';
 import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 
 @Component({
@@ -14,6 +15,7 @@ export class HomeComponent implements OnInit {
   listaPokemon: any[] = [];
   paginator: number = 0;
   cargando : boolean = false;
+  pokemonseleccionado? : Pokemon;
 
   ngOnInit(): void {
     this.cargarLista();
@@ -37,6 +39,11 @@ export class HomeComponent implements OnInit {
         this.cargarLista();
       }
       
+      }
+
+     async tarjetaclickeada(id: string)  {
+        console.log("tarjeta enviando " + id)
+        this.pokemonseleccionado = await this.pokemonApiService.getById(id);
       }
 
 }

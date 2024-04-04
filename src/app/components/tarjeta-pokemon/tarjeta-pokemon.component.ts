@@ -1,4 +1,4 @@
-import { Component, Input, OnChanges, OnInit, SimpleChanges } from '@angular/core';
+import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
 import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 
 @Component({
@@ -11,6 +11,7 @@ export class TarjetaPokemonComponent implements OnChanges{
   constructor(private pokemonApiService: PokemonApiService){}
 
   @Input() data?: any;
+  @Output() clickeado = new EventEmitter<string>();
 
   id: string = "0";
 

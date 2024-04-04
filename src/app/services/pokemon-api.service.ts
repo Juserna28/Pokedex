@@ -23,8 +23,7 @@ export class PokemonApiService {
   //Obtener por id
   async getById(id : string):Promise<any> {
     const pokeList = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
-    const pokelistJson = pokeList.json(); //Transforamcion en json
-    console.log(await pokelistJson);
+    return pokeList.json();
   }
 
   getDescription() {
