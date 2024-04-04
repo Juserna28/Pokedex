@@ -1,4 +1,5 @@
 import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
+import { Resultado } from 'src/app/interaces/pokeapi-interface';
 import { Pokemon } from 'src/app/interaces/pokemoninterfa';
 import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 
@@ -12,7 +13,7 @@ export class HomeComponent implements OnInit {
   constructor(private pokemonApiService: PokemonApiService){}
   @ViewChild('tarjetas') tarjetasElement!: ElementRef;
 
-  listaPokemon: any[] = [];
+  listaPokemon: Resultado[] = [];
   paginator: number = 0;
   cargando : boolean = false;
   pokemonseleccionado? : Pokemon;

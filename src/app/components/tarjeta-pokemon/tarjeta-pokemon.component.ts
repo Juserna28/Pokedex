@@ -1,4 +1,6 @@
 import { Component, EventEmitter, Input, OnChanges, OnInit, Output, SimpleChanges } from '@angular/core';
+import { Resultado } from 'src/app/interaces/pokeapi-interface';
+import { Pokemon } from 'src/app/interaces/pokemoninterfa';
 import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 
 @Component({
@@ -10,22 +12,27 @@ export class TarjetaPokemonComponent implements OnChanges{
 
   constructor(private pokemonApiService: PokemonApiService){}
 
-  @Input() data?: any;
+  @Input() data?: Resultado;
   @Input() seleccionado: boolean = false;
+  @Input() fullData?:Pokemon;
   @Output() clickeado = new EventEmitter<string>();
-
   id: string = "0";
 
-  ngOnChanges(changes: SimpleChanges): void {
+  ngOnChanges(): void {
     this.obtenerid()
   }
 
   obtenerid() {
-    console.log
-    if(this.data) {
-      this.id = this.data.url.substring(34,this.data.url.length -1);
-      this.pokemonApiService.getById(this.id);
+    if(this.data && this.data.url !== ""){
+      this.id = this.data.url.substring(34,this.data.url.length-1);
       return
+    }
+    if(this.fullData){
+      this.id = this.fullData.species.url.substring(42,this.fullData.species.url.length-1);
+      this.data = {
+        name:this.fullData.species.name,
+        url: ""
+      }
     }
   }
 
