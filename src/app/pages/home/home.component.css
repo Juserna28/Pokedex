@@ -1,0 +1,25 @@
+#container {
+    height: calc(100vh - 110px);
+    display: grid;
+    grid-template-columns: 1.2fr 1fr;
+    align-items: center;
+    background: repeating-linear-gradient(
+      0deg,
+      #79a0e3 ,
+      #79a0e3 15px,
+      #79a0e3 15px,
+      #c7d9ee 25px
+    );
+    
+}
+
+app-foto-pokemon {
+    margin-left: 100px;
+}
+
+#tarjetasContainer {
+  display: flex;
+  flex-direction: column;
+  gap: 5px;
+}
+
