@@ -11,6 +11,7 @@ export class TarjetaPokemonComponent implements OnChanges{
   constructor(private pokemonApiService: PokemonApiService){}
 
   @Input() data?: any;
+  @Input() seleccionado: boolean = false;
   @Output() clickeado = new EventEmitter<string>();
 
   id: string = "0";
