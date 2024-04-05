@@ -1,5 +1,6 @@
-import { Component, Input } from '@angular/core';
+import { Component, Input, OnChanges, SimpleChanges } from '@angular/core';
 import { Pokemon } from 'src/app/interaces/pokemoninterfa';
+import { PokemonApiService } from 'src/app/services/pokemon-api.service';
 
 @Component({
   selector: 'app-foto-pokemon',
@@ -7,7 +8,11 @@ import { Pokemon } from 'src/app/interaces/pokemoninterfa';
   styleUrls: ['./foto-pokemon.component.css']
 })
 export class FotoPokemonComponent {
+  
 @Input() pokemon?: Pokemon;
+
+
+
 
 
 }

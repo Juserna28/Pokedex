@@ -26,7 +26,14 @@ export class PokemonApiService {
     return pokeList.json();
   }
 
-  getDescription() {
+  async getDescription(id : string | number): Promise <string>{
+    const pokeList = await fetch(`https://pokeapi.co/api/v2/pokemon-species/${id}`)
+    const pokelistJson = await pokeList.json();
+    const texto = pokelistJson.flavor_text_entries.find((texto: any) =>
+    texto.language.name === "es");
+    console.log(texto)
+    return texto.flavor_text;
+    
 
   }
 }

@@ -17,6 +17,7 @@ export class HomeComponent implements OnInit {
   paginator: number = 0;
   cargando : boolean = false;
   pokemonseleccionado? : Pokemon;
+  detalle : boolean = false;
 
   ngOnInit(): void {
     this.cargarLista();
@@ -45,6 +46,10 @@ export class HomeComponent implements OnInit {
      async tarjetaclickeada(id: string)  {
         console.log("tarjeta enviando " + id)
         this.pokemonseleccionado = await this.pokemonApiService.getById(id);
+      }
+
+      cambiarestadodetalle() {
+        if(this.pokemonseleccionado) this.detalle = !this.detalle;
       }
 
 }

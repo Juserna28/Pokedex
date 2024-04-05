@@ -1,6 +1,9 @@
 <main id="container">
     <app-detalle-pokemon
-    [pokemon]="pokemonseleccionado"></app-detalle-pokemon>
+    [pokemon]="pokemonseleccionado"
+    (cambiarAbierto)="cambiarestadodetalle()"
+    [abierto] = "detalle"
+    ></app-detalle-pokemon>
 
 <app-foto-pokemon 
 [pokemon]="pokemonseleccionado"></app-foto-pokemon>
