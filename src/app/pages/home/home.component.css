@@ -30,18 +30,49 @@
   ::-webkit-scrollbar{
     width: 12px;
   }
+  ::-webkit-scrollbar-thumb{
+    background-color: #e9563d;
+    border-radius: 2px;
+    /* Con este truco hago el thumb más chico que su padre */
+    box-shadow: inset 0 0 0 2px #882a1a;
+     border-left: 1.5px solid transparent;
+     border-right: 1.5px solid transparent;
+     background-clip: padding-box;
+    cursor:grab;
+  }
+  ::-webkit-scrollbar-track {
+    border: solid #90ace7 2px;
+    cursor: pointer;
+    background: repeating-linear-gradient(
+      0deg,
+      #276d83,
+      #276d83 5px,
+      #1c4760 7px,
+      #1c4760 9px
+    );
+  }
+
+
 }
 
 app-foto-pokemon {
   margin-left: 100px;
   z-index: 2;
+  &.abierto {
+    margin-left: 50px;
+  }
  
 }
 
 app-detalle-pokemon {
   position: absolute;
   z-index: 1;
-  
+  left: -90vw;
+  transition: 0.5s;
+  transition-timing-function: ease-in-out;
+  &.abierto {
+    left: 0;
+  }
 }
 
 
@@ -53,6 +84,8 @@ app-detalle-pokemon {
   overflow-y: scroll;
   overflow-x: hidden;
   margin-right: 10px;
+
+
 }
 
 #spinner {

@@ -44,7 +44,9 @@ export class HomeComponent implements OnInit {
       }
 
      async tarjetaclickeada(id: string)  {
-        console.log("tarjeta enviando " + id)
+        if(this.pokemonseleccionado && id === this.pokemonseleccionado?.id.toString()) {
+           return this.cambiarestadodetalle();
+        }
         this.pokemonseleccionado = await this.pokemonApiService.getById(id);
       }
 

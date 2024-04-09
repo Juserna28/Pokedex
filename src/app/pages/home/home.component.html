@@ -3,10 +3,12 @@
     [pokemon]="pokemonseleccionado"
     (cambiarAbierto)="cambiarestadodetalle()"
     [abierto] = "detalle"
+    [ngClass]="{abierto : detalle}"
     ></app-detalle-pokemon>
 
 <app-foto-pokemon 
-[pokemon]="pokemonseleccionado"></app-foto-pokemon>
+[pokemon]="pokemonseleccionado"
+[ngClass]="{abierto : detalle}"></app-foto-pokemon>
 
 
 <div id="tarjetasContainer" #tarjetas (scroll)="onScroll($event)">

@@ -1,8 +1,12 @@
+<div id="backdrop" [ngClass]="{escondido : !abierto}" (click)="cambiarAbierto.emit()">
+
+</div>
 <div id="container">
     <div id="datos">
         <div class="area">
             <app-tarjeta-pokemon
-            [fullData]="pokemon"></app-tarjeta-pokemon>
+            [fullData]="pokemon"
+            [seleccionado]="true"></app-tarjeta-pokemon>
         </div>
         <div class="area">
             <p> <span class="etiqueta">Tipo</span> <span class="tipo" *ngFor="let tipo of pokemon?.types"> {{tipo.type.name}}</span>
